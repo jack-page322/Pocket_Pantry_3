@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>147865088258-lj6g0ouc73fvp9a0tf74vujrkns3jf2o.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.147865088258-lj6g0ouc73fvp9a0tf74vujrkns3jf2o</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCSIf82qmttjGSe4KIJLEFvfYINf6-HLGQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>147865088258</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dbrown20.Pocket-Pantry</string>
+	<key>PROJECT_ID</key>
+	<string>pocket-pantry-796a4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pocket-pantry-796a4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:147865088258:ios:75d3020686b8e06d5ed21b</string>
+	<key>DATABASE_URL</key>
+	<string>https://pocket-pantry-796a4-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

@@ -12,6 +12,9 @@
 		552515BB28FF85A4004C88D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 552515BA28FF85A4004C88D9 /* Assets.xcassets */; };
 		552515BE28FF85A4004C88D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 552515BD28FF85A4004C88D9 /* Preview Assets.xcassets */; };
 		82C44F392900D1DE007E1506 /* pantryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C44F382900D1DE007E1506 /* pantryView.swift */; };
+		E807C6582901974E0018472C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E807C6572901974E0018472C /* GoogleService-Info.plist */; };
+		E807C65C290199600018472C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E807C65B290199600018472C /* FirebaseAnalytics */; };
+		E807C65E290199600018472C /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E807C65D290199600018472C /* FirebaseAnalyticsSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,7 @@
 		552515BA28FF85A4004C88D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		552515BD28FF85A4004C88D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82C44F382900D1DE007E1506 /* pantryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryView.swift; sourceTree = "<group>"; };
+		E807C6572901974E0018472C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +32,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E807C65E290199600018472C /* FirebaseAnalyticsSwift in Frameworks */,
+				E807C65C290199600018472C /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +63,7 @@
 				552515B828FF859B004C88D9 /* ContentView.swift */,
 				82C44F382900D1DE007E1506 /* pantryView.swift */,
 				552515BA28FF85A4004C88D9 /* Assets.xcassets */,
+				E807C6572901974E0018472C /* GoogleService-Info.plist */,
 				552515BC28FF85A4004C88D9 /* Preview Content */,
 			);
 			path = PocketPantry;
@@ -86,6 +93,10 @@
 			dependencies = (
 			);
 			name = PocketPantry;
+			packageProductDependencies = (
+				E807C65B290199600018472C /* FirebaseAnalytics */,
+				E807C65D290199600018472C /* FirebaseAnalyticsSwift */,
+			);
 			productName = PocketPantry;
 			productReference = 552515B328FF859B004C88D9 /* PocketPantry.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 552515AA28FF859A004C88D9;
+			packageReferences = (
+				E807C65A290199600018472C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 552515B428FF859B004C88D9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,6 +144,7 @@
 			files = (
 				552515BE28FF85A4004C88D9 /* Preview Assets.xcassets in Resources */,
 				552515BB28FF85A4004C88D9 /* Assets.xcassets in Resources */,
+				E807C6582901974E0018472C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +356,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E807C65A290199600018472C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E807C65B290199600018472C /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E807C65A290199600018472C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		E807C65D290199600018472C /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E807C65A290199600018472C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 552515AB28FF859A004C88D9 /* Project object */;
 }
