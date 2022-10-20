@@ -7,8 +7,8 @@ struct ContentView: View {
             HStack(alignment: .center){
                 Text("Pocket Pantry")
             }
+            
             HStack{
-                
                 NavigationView{
                     NavigationLink(destination: pantryView()){
                         Text("View Pantry")
@@ -18,9 +18,10 @@ struct ContentView: View {
                             .foregroundColor(Color.white)
                             .background(Color.black)
                             .cornerRadius(12)
+                        
                             .toolbar {
                                 ToolbarItemGroup(placement: .bottomBar) {
-                                    Button("Home") {
+                                    Button("Account") {
                                         print("Pressed")
                                     }
                                     
@@ -34,7 +35,7 @@ struct ContentView: View {
                     }
                 }
                 Spacer()
-            }//.background(Color.mint)
+            }
         }
     }
     
