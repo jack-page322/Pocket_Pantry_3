@@ -7,6 +7,9 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseDatabase
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
@@ -20,6 +23,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct PocketPantryApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    var db_ref = Database.database(url: "https://pocket-pantry-796a4-default-rtdb.firebaseio.com/").reference()
     var body: some Scene {
         WindowGroup {
             ContentView()
