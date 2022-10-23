@@ -23,7 +23,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct PocketPantryApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    var db_ref = Database.database(url: "https://pocket-pantry-796a4-default-rtdb.firebaseio.com/").reference()
     var body: some Scene {
         WindowGroup {
             ContentView()

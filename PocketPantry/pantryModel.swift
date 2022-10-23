@@ -7,19 +7,22 @@
 
 import Foundation
 
-struct food: Identifiable, Codable {
-    var id: Int
-    var date_added: String
+struct Food: Codable {
+    var id: String
     var name: String
     var brand: String
     var category: String
 }
+struct FoodRef: Codable {
+    var id: String
+    var date_added: String
+} 
 
-struct pantry: Identifiable, Codable {
-    var id: Int
-    var foods: [food]
+struct Pantry: Codable {
+    var id: String
+    var foods: [FoodRef]
     var isShared: Bool
-    var userID: Int
+    var userID: String
 }
 
 

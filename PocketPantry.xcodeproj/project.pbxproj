@@ -20,6 +20,7 @@
 		E807C66929019CB50018472C /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E807C66829019CB50018472C /* FirebaseDatabaseSwift */; };
 		E807C66B29019CB50018472C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E807C66A29019CB50018472C /* FirebaseFirestore */; };
 		E8C6531529048E0F0002C0D3 /* pantryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C6531429048E0F0002C0D3 /* pantryModel.swift */; };
+		E8C65317290492BE0002C0D3 /* pantryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C65316290492BE0002C0D3 /* pantryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		82C44F382900D1DE007E1506 /* pantryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryView.swift; sourceTree = "<group>"; };
 		E807C6572901974E0018472C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8C6531429048E0F0002C0D3 /* pantryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryModel.swift; sourceTree = "<group>"; };
+		E8C65316290492BE0002C0D3 /* pantryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				552515BA28FF85A4004C88D9 /* Assets.xcassets */,
 				E807C6572901974E0018472C /* GoogleService-Info.plist */,
 				552515BC28FF85A4004C88D9 /* Preview Content */,
+				E8C65316290492BE0002C0D3 /* pantryViewModel.swift */,
 			);
 			path = PocketPantry;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				552515B928FF859B004C88D9 /* ContentView.swift in Sources */,
 				82C44F392900D1DE007E1506 /* pantryView.swift in Sources */,
 				552515B728FF859B004C88D9 /* PocketPantryApp.swift in Sources */,
+				E8C65317290492BE0002C0D3 /* pantryViewModel.swift in Sources */,
 				E8C6531529048E0F0002C0D3 /* pantryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,7 +234,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -284,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -309,6 +313,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -337,6 +342,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
