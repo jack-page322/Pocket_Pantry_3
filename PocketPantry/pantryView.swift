@@ -1,35 +1,32 @@
 import SwiftUI
+import Firebase
 
 struct pantryView: View {
-    @StateObject private var pantryViewModel = PantryViewModel()
+    //@StateObject private var pantryViewModel = PantryViewModel()
+    @EnvironmentObject var dataManager: DataManager
+    @State private var showPopup = false
     
     var body: some View {
         NavigationView {
-            //var pantry = pantryViewModel.pantries[0]
-            VStack(alignment: .leading) {
-                Text("Pantry").font(.title3).bold()
+            List(dataManager.foods, id: \.id) { food in
+                Text(food.name)
             }
-            Spacer()
-//            List(pantry.foods) { food in
-//                HStack {
-//                    VStack(alignment: .leading) {
-//                        Text(food.name).font(.caption)
-//                        Text(food.date_added)
-//                    }
-//                }
-//            }
             .navigationTitle("My Pantry")
-        } .onAppear {
-            pantryViewModel.readPantryData()
+            .navigationBarItems(trailing: Button(action: {
+                showPopup.toggle()
+            }, label: {
+                Image(systemName: "plus")
+            }))
+            .sheet(isPresented: $showPopup) {
+                newFoodView()
+            }
         }
-//        .onDisappear {
-//            pantryViewModel.stopListening()
-//        }
     }
 }
 
 struct pantryView_Previews: PreviewProvider {
     static var previews: some View {
         pantryView()
+            .environmentObject(DataManager())
     }
 }
