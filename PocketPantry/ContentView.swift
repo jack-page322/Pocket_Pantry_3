@@ -5,6 +5,9 @@ struct ContentView: View {
     
     @State private var email = ""
     @State private var password = ""
+    @State private var fname = ""
+    @State private var lname = ""
+    @State private var passwordCheck = ""
     @State private var loggedIn = false
     @StateObject var dataManager = DataManager()
     
@@ -58,11 +61,135 @@ struct ContentView: View {
             //                .rotationEffect(.degrees(135))
             //                .offset(y: -350)
             
+                VStack(spacing: 20) {
+                    Text("Pocket Pantry")
+                        .foregroundColor(.white)
+                        .font(.system(size:40, weight: .bold, design: .rounded))
+                        .offset(x: 0, y: -100)
+                    
+                    TextField("Email", text: $email)
+                        .foregroundColor(.white)
+                        .textFieldStyle(.plain)
+                        .placeholder(when: email.isEmpty) {
+                            Text("Email")
+                                .foregroundColor(.white)
+                                .bold()
+                        }
+                    
+                    Rectangle()
+                        .frame(width:300, height: 1)
+                        .foregroundColor(.white)
+                        .padding(.bottom)
+                    
+                    
+                    SecureField("Password", text: $password)
+                        .foregroundColor(.white)
+                        .textFieldStyle(.plain)
+                        .placeholder(when: password.isEmpty) {
+                            Text("Password")
+                                .foregroundColor(.white)
+                                .bold()
+                        }
+                    
+                    Rectangle()
+                        .frame(width:300, height: 1)
+                        .foregroundColor(.white)
+                    
+                    Button {
+                        login()
+                    } label: {
+                        Text("Log in")
+                            .bold()
+                            .frame(width: 200, height: 40)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .fill(.white)
+                            )
+                            .foregroundColor(.blue)
+                    }
+                    .padding(.top)
+                    .offset(y: 100)
+                    
+                    
+                    
+                    Button {
+                        register()
+                        
+                    } label: {
+                        Text("Don't have an account? Sign up")
+                            .bold()
+                            .foregroundColor(.white)
+                     
+
+                    }
+                    .padding(.top)
+                    .offset(y: 110)
+                    
+                }
+        
+            .frame(width: 300)
+            .onAppear {
+                Auth.auth().addStateDidChangeListener { auth, user in
+                    if user != nil {
+                        loggedIn = false
+                    }
+                }
+            }
+            
+        }
+        .ignoresSafeArea()
+    
+    }
+        
+    func login() {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
+    var registerView: some View {
+        ZStack {
+            Color.cyan
+
             VStack(spacing: 20) {
                 Text("Pocket Pantry")
                     .foregroundColor(.white)
                     .font(.system(size:40, weight: .bold, design: .rounded))
                     .offset(x: 0, y: -100)
+                
+                Group {
+                    TextField("Email", text: $email)
+                        .foregroundColor(.white)
+                        .textFieldStyle(.plain)
+                        .placeholder(when: email.isEmpty) {
+                            Text("Email")
+                                .foregroundColor(.white)
+                                .bold()
+                        }
+                    
+                    Rectangle()
+                        .frame(width:300, height: 1)
+                        .foregroundColor(.white)
+                        .padding(.bottom)
+                    
+                    TextField("Last Name", text: $lname)
+                        .foregroundColor(.white)
+                        .textFieldStyle(.plain)
+                        .placeholder(when: fname.isEmpty) {
+                            Text("Last Name")
+                                .foregroundColor(.white)
+                                .bold()
+                        }
+                    
+                    Rectangle()
+                        .frame(width:300, height: 1)
+                        .foregroundColor(.white)
+                        .padding(.bottom)
+                    
+                    
+                }
                 
                 TextField("Email", text: $email)
                     .foregroundColor(.white)
@@ -92,10 +219,23 @@ struct ContentView: View {
                     .frame(width:300, height: 1)
                     .foregroundColor(.white)
                 
+                SecureField("Confirm Password", text: $passwordCheck)
+                    .foregroundColor(.white)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: password.isEmpty) {
+                        Text("Confirm Password")
+                            .foregroundColor(.white)
+                            .bold()
+                    }
+                
+                Rectangle()
+                    .frame(width:300, height: 1)
+                    .foregroundColor(.white)
+                
                 Button {
-                    login()
+                    register()
                 } label: {
-                    Text("Log in")
+                    Text("Create Account")
                         .bold()
                         .frame(width: 200, height: 40)
                         .background(
@@ -106,17 +246,7 @@ struct ContentView: View {
                 }
                 .padding(.top)
                 .offset(y: 100)
-                
-                Button {
-                    register()
-                } label: {
-                    Text("Don't have an account? Sign up")
-                        .bold()
-                        .foregroundColor(.white)
-                    
-                }
-                .padding(.top)
-                .offset(y: 110)
+
             }
             .frame(width: 300)
             .onAppear {
@@ -129,14 +259,6 @@ struct ContentView: View {
         }
         .ignoresSafeArea()
     }
-        
-    func login() {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-        }
-    }
     
     // add another screen for the sign up
     func register() {
@@ -145,6 +267,11 @@ struct ContentView: View {
                 print(error!.localizedDescription)
             }
         }
+//        NavigationView{
+//            NavigationLink(destination: registerView){
+//
+//            }
+//        }
     }
 }
 
