@@ -10,6 +10,7 @@ struct ContentView: View {
     @State private var passwordCheck = ""
     @State private var loggedIn = false
     @StateObject var dataManager = DataManager()
+    @State private var signUp = false
     
     var body: some View {
         if loggedIn {
@@ -74,6 +75,7 @@ struct ContentView: View {
                             Text("Email")
                                 .foregroundColor(.white)
                                 .bold()
+                                
                         }
                     
                     Rectangle()
@@ -95,10 +97,30 @@ struct ContentView: View {
                         .frame(width:300, height: 1)
                         .foregroundColor(.white)
                     
+                    
+                    VStack{
+                        Button {
+                            login()
+                        } label: {
+                            Text("Log in")
+                                .bold()
+                                .frame(width: 200, height: 40)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .fill(.white)
+                                )
+                                .foregroundColor(.blue)
+                        }
+                        .padding(.top)
+                        .offset(y: 100)
+                    }
+                    
                     Button {
-                        login()
+                        register()
+                        signUp = true
+                       
                     } label: {
-                        Text("Log in")
+                        Text("Sign Up")
                             .bold()
                             .frame(width: 200, height: 40)
                             .background(
@@ -109,24 +131,8 @@ struct ContentView: View {
                     }
                     .padding(.top)
                     .offset(y: 100)
-                    
-                    
-                    
-                    Button {
-                        register()
-                        
-                    } label: {
-                        Text("Don't have an account? Sign up")
-                            .bold()
-                            .foregroundColor(.white)
-                     
-
-                    }
-                    .padding(.top)
-                    .offset(y: 110)
-                    
                 }
-        
+    
             .frame(width: 300)
             .onAppear {
                 Auth.auth().addStateDidChangeListener { auth, user in
@@ -231,7 +237,6 @@ struct ContentView: View {
                 Rectangle()
                     .frame(width:300, height: 1)
                     .foregroundColor(.white)
-                
                 Button {
                     register()
                 } label: {
@@ -267,11 +272,6 @@ struct ContentView: View {
                 print(error!.localizedDescription)
             }
         }
-//        NavigationView{
-//            NavigationLink(destination: registerView){
-//
-//            }
-//        }
     }
 }
 
