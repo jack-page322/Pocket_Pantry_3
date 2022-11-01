@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var loggedIn = false
     @StateObject var dataManager = DataManager()
     @State private var signUp = false
+    @State var isActive = true
     
     var body: some View {
         if loggedIn {
@@ -97,7 +98,6 @@ struct ContentView: View {
                         .frame(width:300, height: 1)
                         .foregroundColor(.white)
                     
-                    
                     VStack{
                         
                         Button {
@@ -114,20 +114,26 @@ struct ContentView: View {
                         }
                         .padding(.top)
                         .offset(y: 100)
+
+                        Button(action: {
+                            print("Floating Button Click")
+                        }, label: {
+                            NavigationLink(destination: registerView) {
+                                 Text("Sign up")
+                                    .bold()
+                                    .frame(width: 200, height: 40)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                            .fill(.white)
+                                    )
+                                    .foregroundColor(.blue)
+                             }
+                        })
+                        .padding(.top)
+                        .offset(y: 100)
+
                     }
                     
-                    NavigationLink(destination: registerView) {
-                        Text("Sign Up")
-                            .bold()
-                            .frame(width: 200, height: 40)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                    .fill(.white)
-                            )
-                            .foregroundColor(.blue)
-                    }
-                    .padding(.top)
-                    .offset(y: 100)
                 }
     
             .frame(width: 300)
