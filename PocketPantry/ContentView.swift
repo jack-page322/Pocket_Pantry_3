@@ -99,6 +99,7 @@ struct ContentView: View {
                     
                     
                     VStack{
+                        
                         Button {
                             login()
                         } label: {
@@ -115,11 +116,7 @@ struct ContentView: View {
                         .offset(y: 100)
                     }
                     
-                    Button {
-                        register()
-                        signUp = true
-                       
-                    } label: {
+                    NavigationLink(destination: registerView) {
                         Text("Sign Up")
                             .bold()
                             .frame(width: 200, height: 40)
