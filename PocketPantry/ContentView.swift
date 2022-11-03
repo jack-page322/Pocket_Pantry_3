@@ -269,6 +269,7 @@ struct ContentView: View {
                 Auth.auth().addStateDidChangeListener { auth, user in
                     if user != nil {
                         loggedIn.toggle()
+                        signUp.toggle()
                     }
                 }
             }
