@@ -174,13 +174,13 @@ struct ContentView: View {
                 Text("Pocket Pantry")
                     .foregroundColor(.white)
                     .font(.system(size:40, weight: .bold, design: .rounded))
-                    .offset(x: 0, y: -100)
+                    .offset(x: 0, y: -70)
                 
                 Group {
-                    TextField("First Name", text: $email)
+                    TextField("First Name", text: $fname)
                         .foregroundColor(.white)
                         .textFieldStyle(.plain)
-                        .placeholder(when: email.isEmpty) {
+                        .placeholder(when: fname.isEmpty) {
                             Text("First Name")
                                 .foregroundColor(.white)
                                 .bold()
@@ -194,7 +194,7 @@ struct ContentView: View {
                     TextField("Last Name", text: $lname)
                         .foregroundColor(.white)
                         .textFieldStyle(.plain)
-                        .placeholder(when: fname.isEmpty) {
+                        .placeholder(when: lname.isEmpty) {
                             Text("Last Name")
                                 .foregroundColor(.white)
                                 .bold()
@@ -239,7 +239,7 @@ struct ContentView: View {
                 SecureField("Confirm Password", text: $passwordCheck)
                     .foregroundColor(.white)
                     .textFieldStyle(.plain)
-                    .placeholder(when: password.isEmpty) {
+                    .placeholder(when: passwordCheck.isEmpty) {
                         Text("Confirm Password")
                             .foregroundColor(.white)
                             .bold()
@@ -261,7 +261,7 @@ struct ContentView: View {
                         .foregroundColor(.blue)
                 }
                 .padding(.top)
-                .offset(y: 100)
+                .offset(y: 50)
 
             }
             .frame(width: 300)
