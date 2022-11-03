@@ -1,6 +1,19 @@
 import SwiftUI
 import Firebase
 
+
+//class PantryViewModel: ObservableObject {
+//    init() {
+//        fetchCurrentUser()
+//    }
+//
+//    private func fetchCurrentUser() {
+//        guard let uid =
+//                DataManager.shared.auth.currentUser?.uid else { return }
+//        DataManager
+//    }
+//}
+
 struct pantryView: View {
     //@StateObject private var pantryViewModel = PantryViewModel()
     @EnvironmentObject var dataManager: DataManager
