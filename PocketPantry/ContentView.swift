@@ -12,6 +12,7 @@ struct ContentView: View {
     @State var uid = ""
     @StateObject var dataManager = DataManager()
     @State private var signUp = false
+    @State private var disable = false
     
     var body: some View {
         if loggedIn {
@@ -203,7 +204,6 @@ struct ContentView: View {
                     Rectangle()
                         .frame(width:300, height: 1)
                         .foregroundColor(.white)
-                        .padding(.bottom)
                     
                     
                 }
@@ -220,7 +220,6 @@ struct ContentView: View {
                 Rectangle()
                     .frame(width:300, height: 1)
                     .foregroundColor(.white)
-                    .padding(.bottom)
                 
                 
                 SecureField("Password", text: $password)
@@ -248,6 +247,14 @@ struct ContentView: View {
                 Rectangle()
                     .frame(width:300, height: 1)
                     .foregroundColor(.white)
+                
+                if (!isEqual(a: password, b: passwordCheck)) {
+                    Text("Passwords do not match")
+                        .foregroundColor(.red)
+                        .font(.system(size:18, weight: .bold, design: .rounded))
+
+                }
+
                 Button {
                     register()
                 } label: {
@@ -260,7 +267,7 @@ struct ContentView: View {
                         )
                         .foregroundColor(.blue)
                 }
-                .padding(.top)
+                //.padding(.top)
                 .offset(y: 50)
 
             }
@@ -289,6 +296,9 @@ struct ContentView: View {
                 self.uid = result?.user.uid ?? ""
             }
         }
+    }
+    func isEqual(a: String, b: String) -> Bool {
+        return a == b
     }
 }
 
