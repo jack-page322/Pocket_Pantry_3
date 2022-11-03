@@ -18,10 +18,10 @@
 		82806F3C290A11A9005CC11E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 82806F3B290A11A9005CC11E /* FirebaseFirestore */; };
 		82806F3E290A11A9005CC11E /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 82806F3D290A11A9005CC11E /* FirebaseFirestoreCombine-Community */; };
 		82806F40290A11A9005CC11E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 82806F3F290A11A9005CC11E /* FirebaseFirestoreSwift */; };
-		828C64BB2909EA25004F447D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 828C64BA2909EA25004F447D /* GoogleService-Info.plist */; };
 		E80FD9792908FAB3003BD6D7 /* pantryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80FD9782908FAB3003BD6D7 /* pantryView.swift */; };
 		E80FD97B2908FD59003BD6D7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80FD97A2908FD59003BD6D7 /* DataManager.swift */; };
 		E80FD97D290900C0003BD6D7 /* newFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80FD97C290900C0003BD6D7 /* newFoodView.swift */; };
+		E821CAF32913FA9A003B1C24 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E821CAF22913FA9A003B1C24 /* GoogleService-Info.plist */; };
 		E8C6531529048E0F0002C0D3 /* pantryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C6531429048E0F0002C0D3 /* pantryModel.swift */; };
 		E8C65317290492BE0002C0D3 /* pantryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C65316290492BE0002C0D3 /* pantryViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -32,10 +32,10 @@
 		552515B828FF859B004C88D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		552515BA28FF85A4004C88D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		552515BD28FF85A4004C88D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		828C64BA2909EA25004F447D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E80FD9782908FAB3003BD6D7 /* pantryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryView.swift; sourceTree = "<group>"; };
 		E80FD97A2908FD59003BD6D7 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		E80FD97C290900C0003BD6D7 /* newFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newFoodView.swift; sourceTree = "<group>"; };
+		E821CAF22913FA9A003B1C24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8C6531429048E0F0002C0D3 /* pantryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryModel.swift; sourceTree = "<group>"; };
 		E8C65316290492BE0002C0D3 /* pantryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +84,7 @@
 				E8C6531429048E0F0002C0D3 /* pantryModel.swift */,
 				E80FD97A2908FD59003BD6D7 /* DataManager.swift */,
 				552515BA28FF85A4004C88D9 /* Assets.xcassets */,
-				828C64BA2909EA25004F447D /* GoogleService-Info.plist */,
+				E821CAF22913FA9A003B1C24 /* GoogleService-Info.plist */,
 				552515BC28FF85A4004C88D9 /* Preview Content */,
 				E8C65316290492BE0002C0D3 /* pantryViewModel.swift */,
 			);
@@ -170,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				552515BE28FF85A4004C88D9 /* Preview Assets.xcassets in Resources */,
-				828C64BB2909EA25004F447D /* GoogleService-Info.plist in Resources */,
+				E821CAF32913FA9A003B1C24 /* GoogleService-Info.plist in Resources */,
 				552515BB28FF85A4004C88D9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

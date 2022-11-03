@@ -9,6 +9,7 @@ struct ContentView: View {
     @State private var lname = ""
     @State private var passwordCheck = ""
     @State private var loggedIn = false
+    @State var uid = ""
     @StateObject var dataManager = DataManager()
     @State private var signUp = false
     
@@ -45,6 +46,9 @@ struct ContentView: View {
                     // End VStack
                 }
             }
+        }
+        else if signUp {
+            registerView
         }
         else {
             loginView
@@ -116,8 +120,7 @@ struct ContentView: View {
                     }
                     
                     Button {
-                        register()
-                        signUp = true
+                        switchToRegisterView()
                        
                     } label: {
                         Text("Sign Up")
@@ -152,7 +155,15 @@ struct ContentView: View {
             if error != nil {
                 print(error!.localizedDescription)
             }
+            else {
+                print("Successfully logged in: \(result?.user.uid ?? "")")
+                self.uid = result?.user.uid ?? ""
+            }
         }
+    }
+    
+    func switchToRegisterView(){
+        self.signUp = true
     }
     
     var registerView: some View {
@@ -166,11 +177,11 @@ struct ContentView: View {
                     .offset(x: 0, y: -100)
                 
                 Group {
-                    TextField("Email", text: $email)
+                    TextField("First Name", text: $email)
                         .foregroundColor(.white)
                         .textFieldStyle(.plain)
                         .placeholder(when: email.isEmpty) {
-                            Text("Email")
+                            Text("First Name")
                                 .foregroundColor(.white)
                                 .bold()
                         }
@@ -269,7 +280,12 @@ struct ContentView: View {
     func register() {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil{
-                print(error!.localizedDescription)
+                print("Failed to create user:", error!.localizedDescription)
+                return
+            }
+            else {
+                print("Successfully created user: \(result?.user.uid ?? "")")
+                self.uid = result?.user.uid ?? ""
             }
         }
     }

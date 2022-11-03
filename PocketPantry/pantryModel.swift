@@ -13,6 +13,15 @@ struct Food: Identifiable, Codable {
     var brand: String
     var category: String
 }
+
+struct PantryFood: Identifiable, Codable {
+    var id: String
+    var name: String
+    var brand: String
+    var expiration: String
+    var category: String
+    var icon: String
+}
 //struct FoodRef: Codable {
 //    var id: String
 //    var date_added: String

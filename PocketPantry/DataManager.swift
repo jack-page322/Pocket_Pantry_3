@@ -10,14 +10,25 @@ import Firebase
 
 class DataManager: ObservableObject {
     @Published var foods: [Food] = []
+    @Published var pantry: [PantryFood] = []
+    
+    let auth: Auth
+    let db: Firestore
     
     init() {
-        fetchFoods()
+        
+        self.db = Firestore.firestore()
+        self.auth = Auth.auth()
+        
+        fetchUserPantry()
+    }
+        
+    func fetchUserPantry() {
+        
     }
 
     func fetchFoods() {
         foods.removeAll()
-        let db = Firestore.firestore()
         let ref = db.collection("Foods")
         ref.getDocuments { snapshot, error in
             guard error == nil else {
