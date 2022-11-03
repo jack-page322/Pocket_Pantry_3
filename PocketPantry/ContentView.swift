@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var uid = ""
     @StateObject var dataManager = DataManager()
     @State private var signUp = false
-    @State private var disable = false
+    @State private var showSettings = false
     
     var body: some View {
         if loggedIn {
@@ -36,9 +36,11 @@ struct ContentView: View {
                                         
                                         Spacer()
                                         
-                                        Button("Settings") {
-                                            print("Pressed")
-                                        }
+                                        Button(action: {
+                                            switchToSettingsView()
+                                        }, label: {
+                                            Text("Settings")
+                                        })
                                     }
                                 }
                         }
@@ -51,12 +53,14 @@ struct ContentView: View {
         else if signUp {
             registerView
         }
+        else if showSettings {
+            SettingsView()
+        }
         else {
             loginView
         }
     }
-    
-    
+        
     var loginView: some View {
         ZStack {
             Color.cyan
@@ -167,6 +171,10 @@ struct ContentView: View {
         self.signUp = true
     }
     
+    func switchToSettingsView(){
+        self.showSettings = true
+    }
+    
     var registerView: some View {
         ZStack {
             Color.cyan
@@ -257,6 +265,7 @@ struct ContentView: View {
 
                 Button {
                     register()
+                    loggedIn.toggle()
                 } label: {
                     Text("Create Account")
                         .bold()
@@ -282,6 +291,61 @@ struct ContentView: View {
             }
         }
         .ignoresSafeArea()
+    }
+    
+    struct SettingsView: View {
+        
+        private enum Tabs: Hashable {
+            case general, advanced
+        }
+        var body: some View {
+            TabView {
+                GeneralSettingsView()
+                    .tabItem {
+                        Label("General", systemImage: "gear")
+                    }
+                    .tag(Tabs.general)
+                AdvancedSettingsView()
+                    .tabItem {
+                        Label("Advanced", systemImage: "star")
+                    }
+                    .tag(Tabs.advanced)
+            }
+            .padding(20)
+            .frame(width: 375, height: 150)
+        }
+    }
+    
+    struct GeneralSettingsView: View {
+        @AppStorage("showPreview") private var showPreview = true
+        @AppStorage("fontSize") private var fontSize = 12.0
+
+        var body: some View {
+            Form {
+                Toggle("Show Previews", isOn: $showPreview)
+                Slider(value: $fontSize, in: 9...96) {
+                    Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
+                }
+            }
+            .padding(20)
+            .frame(width: 350, height: 100)
+        }
+    }
+    
+    struct AdvancedSettingsView: View {
+        @AppStorage("showPreview") private var showPreview = true
+        @AppStorage("fontSize") private var fontSize = 12.0
+
+        var body: some View {
+            Form {
+                Toggle("Show Previews", isOn: $showPreview)
+                Slider(value: $fontSize, in: 9...96) {
+                    Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
+                }
+            }
+            .padding(20)
+            .frame(width: 350, height: 100)
+        }
     }
     
     // add another screen for the sign up
