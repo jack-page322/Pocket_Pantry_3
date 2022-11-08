@@ -14,6 +14,13 @@ struct ContentView: View {
     @State private var signUp = false
     @State private var showSettings = false
     
+    // settings variables
+    @AppStorage("showPreview") var showPreview = true
+    @AppStorage("fontSize") var fontSize = 12.0
+    enum Tabs: Hashable {
+        case general, advanced
+    }
+    
     var body: some View {
         if loggedIn {
             VStack{
@@ -54,7 +61,7 @@ struct ContentView: View {
             registerView
         }
         else if showSettings {
-            SettingsView()
+            SettingsView
         }
         else {
             loginView
@@ -293,19 +300,16 @@ struct ContentView: View {
         .ignoresSafeArea()
     }
     
-    struct SettingsView: View {
+    var SettingsView: some View {
         
-        private enum Tabs: Hashable {
-            case general, advanced
-        }
-        var body: some View {
+        VStack {
             TabView {
-                GeneralSettingsView()
+                GeneralSettingsView
                     .tabItem {
                         Label("General", systemImage: "gear")
                     }
                     .tag(Tabs.general)
-                AdvancedSettingsView()
+                AdvancedSettingsView
                     .tabItem {
                         Label("Advanced", systemImage: "star")
                     }
@@ -316,36 +320,29 @@ struct ContentView: View {
         }
     }
     
-    struct GeneralSettingsView: View {
-        @AppStorage("showPreview") private var showPreview = true
-        @AppStorage("fontSize") private var fontSize = 12.0
+    var GeneralSettingsView: some View {
 
-        var body: some View {
-            Form {
-                Toggle("Show Previews", isOn: $showPreview)
-                Slider(value: $fontSize, in: 9...96) {
-                    Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
-                }
+        Form {
+            Toggle("Show Previews", isOn: $showPreview)
+            Slider(value: $fontSize, in: 9...96) {
+                Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
             }
-            .padding(20)
-            .frame(width: 350, height: 100)
         }
+        .padding(20)
+        .frame(width: 350, height: 100)
+        
     }
     
-    struct AdvancedSettingsView: View {
-        @AppStorage("showPreview") private var showPreview = true
-        @AppStorage("fontSize") private var fontSize = 12.0
-
-        var body: some View {
-            Form {
-                Toggle("Show Previews", isOn: $showPreview)
-                Slider(value: $fontSize, in: 9...96) {
-                    Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
-                }
+    var AdvancedSettingsView: some View {
+       
+        Form {
+            Toggle("Show Previews", isOn: $showPreview)
+            Slider(value: $fontSize, in: 9...96) {
+                Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
             }
-            .padding(20)
-            .frame(width: 350, height: 100)
         }
+        .padding(20)
+        .frame(width: 350, height: 100)
     }
     
     // add another screen for the sign up
