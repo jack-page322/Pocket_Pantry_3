@@ -43,11 +43,17 @@ struct ContentView: View {
                                         
                                         Spacer()
                                         
-                                        Button(action: {
+                                        Button {
                                             switchToSettingsView()
-                                        }, label: {
+                                            
+                                        } label: {
                                             Text("Settings")
-                                        })
+     
+                                        }
+                                        if showSettings{
+                                            SettingsView
+                                        }
+                                        
                                     }
                                 }
                         }
@@ -59,9 +65,6 @@ struct ContentView: View {
         }
         else if signUp {
             registerView
-        }
-        else if showSettings {
-            SettingsView
         }
         else {
             loginView
@@ -179,7 +182,12 @@ struct ContentView: View {
     }
     
     func switchToSettingsView(){
-        self.showSettings = true
+        if showSettings {
+            self.showSettings = false
+
+        }else{
+            self.showSettings = true
+        }
     }
     
     var registerView: some View {
@@ -303,6 +311,7 @@ struct ContentView: View {
     var SettingsView: some View {
         
         VStack {
+            Color.gray
             TabView {
                 GeneralSettingsView
                     .tabItem {
@@ -316,8 +325,10 @@ struct ContentView: View {
                     .tag(Tabs.advanced)
             }
             .padding(20)
-            .frame(width: 375, height: 150)
+            .frame(width: 375, height: 200)
+            .offset(x: -70, y: -150)
         }
+        
     }
     
     var GeneralSettingsView: some View {
@@ -329,20 +340,20 @@ struct ContentView: View {
             }
         }
         .padding(20)
-        .frame(width: 350, height: 100)
+        .frame(width: 350, height: 250)
         
     }
     
     var AdvancedSettingsView: some View {
        
         Form {
-            Toggle("Show Previews", isOn: $showPreview)
+            Toggle("Show Advanced Previews", isOn: $showPreview)
             Slider(value: $fontSize, in: 9...96) {
                 Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
             }
         }
         .padding(20)
-        .frame(width: 350, height: 100)
+        .frame(width: 350, height: 250)
     }
     
     // add another screen for the sign up
