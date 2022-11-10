@@ -7,12 +7,26 @@
 
 import SwiftUI
 
+
 struct Food: Identifiable, Codable {
     var id: String
     var name: String
     var brand: String
     var category: String
 }
+<<<<<<< Updated upstream
+=======
+
+struct PantryFood: Identifiable, Codable {
+    var id: String
+    var name: String
+    var brand: String
+    var dateAdded: String
+    var category: String
+    var expiration: String
+    var icon: String
+}
+>>>>>>> Stashed changes
 //struct FoodRef: Codable {
 //    var id: String
 //    var date_added: String

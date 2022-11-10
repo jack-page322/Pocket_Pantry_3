@@ -1,5 +1,6 @@
 import SwiftUI
-import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 struct pantryView: View {
     //@StateObject private var pantryViewModel = PantryViewModel()
@@ -8,7 +9,8 @@ struct pantryView: View {
     
     var body: some View {
         NavigationView {
-            List(dataManager.foods, id: \.id) { food in
+            
+            List(dataManager.pantry, id: \.id) { food in
                 Text(food.name)
             }
             .navigationTitle("My Pantry")

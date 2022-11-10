@@ -1,0 +1,6 @@
+framework module Pods_PocketPantry {
+  umbrella header "Pods-PocketPantry-umbrella.h"
+
+  export *
+  module * { export * }
+}
