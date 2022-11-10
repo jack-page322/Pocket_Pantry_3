@@ -11,11 +11,6 @@ import FirebaseAuth
 
 class DataManager: ObservableObject {
     @Published var foods: [Food] = []
-<<<<<<< Updated upstream
-    
-    init() {
-        fetchFoods()
-=======
     @Published var pantry: [PantryFood] = []
     @State var uid = ""
     
@@ -76,7 +71,6 @@ class DataManager: ObservableObject {
                 }
             }
         }
->>>>>>> Stashed changes
     }
 
     func fetchFoods() {

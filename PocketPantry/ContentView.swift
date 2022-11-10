@@ -58,9 +58,6 @@ struct ContentView: View {
             //                .frame(width: 1000, height: 400)
             //                .rotationEffect(.degrees(135))
             //                .offset(y: -350)
-            
-<<<<<<< Updated upstream
-=======
                 VStack(spacing: 20) {
                     Text("Pocket Pantry")
                         .foregroundColor(.white)
@@ -173,7 +170,6 @@ struct ContentView: View {
         ZStack {
             Color.cyan
 
->>>>>>> Stashed changes
             VStack(spacing: 20) {
                 Text("Pocket Pantry")
                     .foregroundColor(.white)
@@ -260,9 +256,6 @@ struct ContentView: View {
         print("Attempting register...")
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil{
-<<<<<<< Updated upstream
-                print(error!.localizedDescription)
-=======
                 print("Failed to create user:", error!.localizedDescription)
                 return
             }
@@ -270,7 +263,6 @@ struct ContentView: View {
                 print("Successfully created user: \(result?.user.uid ?? "")")
                 self.uid = result?.user.uid ?? ""
                 dataManager.setUID(with: self.uid)
->>>>>>> Stashed changes
             }
         }
     }

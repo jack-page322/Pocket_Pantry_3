@@ -14,8 +14,6 @@ struct Food: Identifiable, Codable {
     var brand: String
     var category: String
 }
-<<<<<<< Updated upstream
-=======
 
 struct PantryFood: Identifiable, Codable {
     var id: String
@@ -26,7 +24,6 @@ struct PantryFood: Identifiable, Codable {
     var expiration: String
     var icon: String
 }
->>>>>>> Stashed changes
 //struct FoodRef: Codable {
 //    var id: String
 //    var date_added: String
